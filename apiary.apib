@@ -1,0 +1,139 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# Account-Request
+
+Polls is a simple API allowing consumers to view polls and vote in them.
+
+## Account-Request List [/account-request-List]
+
+### List all Account-Requests [GET]
+
++ Response 200 (application/json)
+
+        [   
+            {
+                "Data": {
+                    "AccountRequestId": "88379",
+                    "Status": "AwaitingAuthentication",
+                    "CreationDateTime": "2017-05-02T00:00:00-00:00",
+                    "Permissions": [
+                      "ReadAccountsDetail",
+                      "ReadBalances",
+                      "ReadBeneficiariesDetail",
+                      "ReadDirectDebits",
+                      "ReadProducts",
+                      "ReadStandingOrdersDetail",
+                      "ReadTransactionsCredits",
+                      "ReadTransactionsDebits",
+                      "ReadTransactionsDetail"
+                    ],
+                    "ExpirationDateTime": "2017-08-02T00:00:00-00:00",
+                    "TransactionFromDateTime": "2017-05-03T00:00:00-00:00",
+                    "TransactionToDateTime": "2017-12-03T00:00:00-00:00"
+                },
+                "Risk": {},
+                "Links": {
+                    "self": "/account-requests/88379"
+                },
+                "Meta": {
+                    "total-pages": 1
+                }
+            },
+            {
+                "Data": {
+                    "AccountRequestId": "88380",
+                    "Status": "AwaitingAuthentication",
+                    "CreationDateTime": "2017-05-02T00:00:00-00:00",
+                    "Permissions": [
+                      "ReadAccountsDetail",
+                      "ReadBalances",
+                      "ReadBeneficiariesDetail",
+                      "ReadDirectDebits",
+                      "ReadProducts",
+                      "ReadStandingOrdersDetail",
+                      "ReadTransactionsCredits",
+                      "ReadTransactionsDebits",
+                      "ReadTransactionsDetail"
+                    ],
+                    "ExpirationDateTime": "2017-08-02T00:00:00-00:00",
+                    "TransactionFromDateTime": "2017-05-03T00:00:00-00:00",
+                    "TransactionToDateTime": "2017-12-03T00:00:00-00:00"
+                },
+                "Risk": {},
+                "Links": {
+                    "self": "/account-requests/88379"
+                },
+                "Meta": {
+                    "total-pages": 1
+                }
+            }
+            
+        ]
+        
+
+## Account-Request collection [/account-request]
+
+### Create Account Request  [POST]
+
++ Request (application/json)
+
+        {
+           "Data" : [
+           {
+                "Permissions": [
+                    "ReadAccountsDetail",
+                    "ReadBalances",
+                    "ReadBeneficiariesDetail",
+                    "ReadDirectDebits",
+                    "ReadProducts",
+                    "ReadStandingOrdersDetail",
+                    "ReadTransactionsCredits",
+                    "ReadTransactionsDebits",
+                    "ReadTransactionsDetail"
+                ],
+                "ExpirationDateTime": "2017-05-02T00:00:00-00:00",
+                "TransactionFromDateTime": "2017-05-03T00:00:00-00:00",
+                "TransactionToDateTime": "2017-12-03T00:00:00-00:00"
+            },
+            "Risk": {}
+            ]
+            
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "Data": {
+                    "AccountRequestId": "88379",
+                    "Status": "AwaitingAuthentication",
+                    "CreationDateTime": "2017-05-02T00:00:00-00:00",
+                    "Permissions": [
+                      "ReadAccountsDetail",
+                      "ReadBalances",
+                      "ReadBeneficiariesDetail",
+                      "ReadDirectDebits",
+                      "ReadProducts",
+                      "ReadStandingOrdersDetail",
+                      "ReadTransactionsCredits",
+                      "ReadTransactionsDebits",
+                      "ReadTransactionsDetail"
+                    ],
+                    "ExpirationDateTime": "2017-08-02T00:00:00-00:00",
+                    "TransactionFromDateTime": "2017-05-03T00:00:00-00:00",
+                    "TransactionToDateTime": "2017-12-03T00:00:00-00:00"
+                },
+                "Risk": {},
+                "Links": {
+                    "self": "/account-requests/88379"
+                },
+                "Meta": {
+                    "total-pages": 1
+                }
+            }
