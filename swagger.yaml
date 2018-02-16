@@ -1,0 +1,95 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: "AccountBalanceApi"
+  description: Gets the account balance for the specified Account Id.
+  license:
+    name: MIT
+    url: https://github.com/apiaryio/polls-api/blob/master/LICENSE
+host: polls.apiblueprint.org
+basePath: /
+schemes:
+- http
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  /accountBalance:
+    x-summary: Account Balance
+    post:
+      description: >-
+        You may create your own question using this action. It takes a JSON
+        object containing a question and a collection of answers in the
+        form of choices.
+      summary: Gets the details of the Account
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/AccountBalanceRequest'
+      responses:
+        200:
+          description: ''
+          schema:
+            $ref: '#/definitions/AccountBalanceResponse'
+          examples:
+            application/json:
+                BRANCH_CODE: '101'
+                CUST_AC_NO: '112345'
+                CCY: 'INR'
+                ACCBAL: 1000  
+definitions:
+  AccountBalanceResponse:
+    title: AccountBalance
+    type: object
+    properties:
+      BRANCH_CODE:
+        type: string
+      CUST_AC_NO:
+        type: string
+      CCY:
+        type: string
+      ACCBAL:
+        type: number
+        format: double
+    required:
+      - BRANCH_CODE
+      - CUST_AC_NO
+      - CCY
+      - ACCBAL
+  AccountBalanceRequest:
+    title: Account Balance
+    type: object
+    properties:
+      CLIENT_ID:
+        type: string
+      CLIENT_SECRET:
+        type: string
+      GRANT_TYPE:
+        type: string
+      URL:
+        type: string
+      Permissions:
+        type: string
+      TransactionFromDateTime:
+        type: string
+      TransactionToDateTime:
+        type: string
+      CUSTACCNO:
+        type: string
+    required:
+      - CLIENT_ID
+      - CLIENT_SECRET
+      - Permissions
+      - TransactionFromDateTime
+      - TransactionToDateTime
+      - CUSTACCNO
+    example:
+      CLIENT_ID: abcd
+      CLIENT_SECRET: de-456-se
+      Permissions: ReadAccountDetails
+      TransactionFromDateTime: 2017-05-03T00:00:00-00:00
+      TransactionToDateTime: 2017-05-03T00:00:00-00:00
+      CUSTACCNO: '112345'
